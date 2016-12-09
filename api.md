@@ -28,9 +28,9 @@
 ```
 
 Доступные методы:
-| Запрос | Описание |
-| --- | --- |
-| DELETE  /userId/messages/id | Удалить сообщение |
+Запрос | Описание
+ --- | ---
+DELETE  /userId/messages/id | Удалить сообщение
 GET  /userId/messages/id | Получить сообщение
 GET /userId/messages | Получить все сообщения пользователя
 POST  /userId/messages/id/modify | Модифицировать метки сообщения, в теле запроса нужно передать структуру ```{"addLabelIds": [string], "removeLabelIds": [string]}```

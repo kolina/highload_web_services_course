@@ -1,0 +1,32 @@
+version: '2'
+services:
+  nginx:
+    image: "nginx:1.10.2"
+    container_name: highload-nginx
+    restart: always
+    ports:
+     - "8080:80"
+    volumes:
+      - /tmp:/tmp
+      - ./config/nginx:/etc/nginx/conf.d
+
+  fastcgi:
+    build: .
+    restart: always
+    container_name: highload-fastcgi
+    ports:
+      - "8081:20012"
+    volumes:
+      - /tmp:/tmp
+      - ./config/fastcgi:/app/config
+      - ./lib:/app/lib
+    command: ["fastcgi-daemon2", "--config=/app/config/fastcgi.conf"]
+
+  app:
+    build: .
+    container_name: highload-app-build
+    volumes:
+      - ./src:/src
+      - ./lib:/app/lib
+    working_dir: "/src"
+    command: ["make"]

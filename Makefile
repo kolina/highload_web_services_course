@@ -11,3 +11,8 @@ restart:
 
 build:
 	docker-compose run --rm app make
+
+reload: build restart
+
+test:
+	cd load_testing && make

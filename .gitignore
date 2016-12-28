@@ -1,3 +1,4 @@
 lib/
 *.so
-
+load_testing/logs/
+load_testing/token.txt

@@ -1,0 +1,9 @@
+<Monitoring>
+  <Host address="localhost" interval="5" username="genadz">
+    <CPU measure="user,system,iowait"/>
+    <System measure="csw,int"/>
+    <Memory measure="free,used"/>
+    <Disk measure="read,write"/>
+    <Net measure="recv,send"/>
+  </Host>
+</Monitoring>

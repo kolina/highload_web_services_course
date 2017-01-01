@@ -30,3 +30,6 @@ RUN cd /tmp && \
          ./libfastcgi-daemon2_2.10-29_amd64.deb \
          ./libfastcgi2-syslog_2.10-29_amd64.deb \
     && cd / && rm -rf /tmp/Fastcgi-Daemon
+
+RUN git clone https://github.com/miloyip/rapidjson.git /usr/share/rapidjson
+ 

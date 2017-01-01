@@ -21,6 +21,8 @@ services:
       - /tmp:/tmp
       - ./config/fastcgi:/app/config
       - ./lib:/app/lib
+    links:
+      - mongo
     command: ["fastcgi-daemon2", "--config=/app/config/fastcgi.conf"]
 
   app:
@@ -31,3 +33,11 @@ services:
       - ./lib:/app/lib
     working_dir: "/src"
     command: ["make"]
+
+  mongo:
+    image: mongo
+    volumes:
+      - /data/db:/data/db
+    container_name: epoll-mongo
+    ports:
+      - "27017:27017"

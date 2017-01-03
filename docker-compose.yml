@@ -8,6 +8,7 @@ services:
       - /tmp:/tmp
       - ./config/nginx/conf.d:/etc/nginx/conf.d
       - ./config/nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./logs:/var/log/nginx
     network_mode: "host"
 
   fastcgi:

@@ -45,7 +45,7 @@ def main():
 
         method, url, case = method.strip(), url.strip(), case.strip()
 
-        headers = \
+        headers = "Host: kolina93-magistracy-1.haze.yandex.net\r\n" \
             "User-Agent: tank\r\n" + \
             "Accept: */*\r\n" + \
             "Connection: Close"

@@ -55,7 +55,7 @@ def main():
             mail = {"_id": message_id, "thread_id": thread_id, "from": current_from, "to": to}
             threads[thread_id].append(mail)
             mails.append(mail)
-            print "{}||{}||{}||{}".format('PUT', '/{}/messages?threadId={}'.format(current_from, thread_id), 'create_message', json.dumps({"to": to})) 
+            print "{}||{}||{}||{}".format('PUT', '/{}/messages/{}?threadId={}'.format(current_from, message_id, thread_id), 'create_message', json.dumps({"to": to})) 
 
 
 if __name__ == '__main__':

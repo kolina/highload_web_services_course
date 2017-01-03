@@ -72,7 +72,11 @@ namespace NMail {
 
         std::vector<std::string> path_components;
         getPathComponents(request, path_components);
-        if (method == "GET" && path_components.size() == 3 && path_components[2] == "messages") {
+        if (method == "GET" && request->getScriptName() == "/ping") {
+            request->write("Hello!\n", 7);
+            return;
+        }
+        else if (method == "GET" && path_components.size() == 3 && path_components[2] == "messages") {
             this->ListMails(request, context, path_components[1]);
         }
         else if (method == "GET" && path_components.size() == 4 && path_components[2] == "messages") {

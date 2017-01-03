@@ -60,7 +60,8 @@ namespace NMail {
     const std::string COLLECTION = "mails";
     const size_t ANSWER_LIMIT = 100;
 
-    thread_local mongocxx::client TMails::mongoClient{mongocxx::uri{}};
+    thread_local mongocxx::client TMails::mongoClient{mongocxx::uri{"mongodb://95.108.186.240:27017,95.108.186.242:27017,95.108.186.217:27017?"
+                                                                    "replicaSet=rs0&w=majority&readConcernLevel=linearizable&readPreference=primary"}};
 
     TMails::TMails() {}
 

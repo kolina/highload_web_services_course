@@ -1,3 +1,8 @@
-# line(1, 10000, 5m) instance with replica set primary on machine
-https://overload.yandex.net/6094#tab=test_data&tags=&plot_groups=main&machines=&metrics=&slider_start=1483444120&slider_end=1483444488&compress_ratio=1
+# line(1, 2000, 5m)
+https://overload.yandex.net/6125
 
+# const(1000, 5m)
+https://overload.yandex.net/6126
+
+# const(500, 5m)
+https://overload.yandex.net/6127

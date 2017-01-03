@@ -4,40 +4,25 @@ services:
     image: "nginx:1.10.2"
     container_name: highload-nginx
     restart: always
-    ports:
-     - "8080:80"
     volumes:
       - /tmp:/tmp
       - ./config/nginx/conf.d:/etc/nginx/conf.d
       - ./config/nginx/nginx.conf:/etc/nginx/nginx.conf
+    network_mode: "host"
 
   fastcgi:
     build: .
     restart: always
     container_name: highload-fastcgi
-    ports:
-      - "8081:20012"
     volumes:
       - /tmp:/tmp
       - ./config/fastcgi:/app/config
-      - ./lib:/app/lib
-    links:
-      - mongo
     command: ["fastcgi-daemon2", "--config=/app/config/fastcgi.conf"]
-
-  app:
-    build: .
-    container_name: highload-app-build
-    volumes:
-      - ./src:/src
-      - ./lib:/app/lib
-    working_dir: "/src"
-    command: ["make"]
+    network_mode: "host"
 
   mongo:
     image: mongo
     volumes:
       - /data/db:/data/db
-    container_name: epoll-mongo
-    ports:
-      - "27017:27017"
+    container_name: highload-mongo
+    network_mode: "host"

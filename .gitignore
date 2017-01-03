@@ -2,3 +2,5 @@ lib/
 *.so
 load_testing/logs/
 load_testing/token.txt
+build-src-Desktop_Qt_5_7_1_GCC_64bit-Default/
+result.json
